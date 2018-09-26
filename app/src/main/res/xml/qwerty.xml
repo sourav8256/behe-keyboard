@@ -3,7 +3,28 @@
     android:keyWidth="10%p"
     android:horizontalGap="0px"
     android:verticalGap="0px"
-    android:keyHeight="9%p">
+    android:keyHeight="7%p">
+
+    <Row>
+        <Key android:keyLabel=" "
+            android:keyWidth="100%p"
+            android:keyEdgeFlags="left"
+            android:codes="150"/>
+    </Row>
+
+    <Row>
+        <Key android:keyLabel=" "
+            android:keyWidth="100%p"
+            android:keyEdgeFlags="left"
+            android:codes="151"/>
+    </Row>
+
+    <Row>
+        <Key android:keyLabel=" "
+            android:keyWidth="100%p"
+            android:keyEdgeFlags="left"
+            android:codes="152"/>
+    </Row>
 
     <Row>
         <Key android:codes="113" android:keyLabel="q" android:keyEdgeFlags="left" android:popupKeyboard="@xml/popup_template" android:popupCharacters="ʠɋq̃"/>
@@ -40,7 +61,7 @@
         <Key android:codes="-5"  android:keyWidth="15%p"  android:isRepeatable="true" android:keyIcon="@drawable/ic_backspace" android:keyEdgeFlags="right"/>
     </Row>
     <Row android:rowEdgeFlags="bottom">
-        <Key android:codes="-101" android:keyIcon="@drawable/ic_more_horiz" android:keyWidth="10%p"/>
+        <!--<Key android:codes="-101" android:keyIcon="@drawable/ic_more_horiz" android:keyWidth="10%p"/>-->
         <Key android:codes="-2" android:keyLabel="123" android:keyWidth="10%p"/>
         <Key android:codes="44" android:keyLabel="," />
         <Key android:codes="32"   android:isRepeatable="true" android:keyLabel="SPACE"

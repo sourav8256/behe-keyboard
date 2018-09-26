@@ -38,6 +38,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.CompletionInfo;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
@@ -47,13 +48,38 @@ import android.view.textservice.SuggestionsInfo;
 import android.view.textservice.TextInfo;
 import android.view.textservice.TextServicesManager;
 import android.widget.PopupWindow;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
+
+
+
+import static com.vlath.keyboard.DataUtils.BACKUP_FILE_NAME;
+import static com.vlath.keyboard.DataUtils.BACKUP_FOLDER_PATH;
+import static com.vlath.keyboard.DataUtils.NOTES_FILE_NAME;
+import static com.vlath.keyboard.DataUtils.NOTE_BODY;
+import static com.vlath.keyboard.DataUtils.NOTE_TITLE;
+import static com.vlath.keyboard.DataUtils.isExternalStorageReadable;
+import static com.vlath.keyboard.DataUtils.isExternalStorageWritable;
+import static com.vlath.keyboard.DataUtils.retrieveData;
+
 
 /** Main class  of the keyboard, extending InputMethodService. Here we handle all the user interaction with the keyboard itself. */
 
 public class PCKeyboard extends InputMethodService
         implements KeyboardView.OnKeyboardActionListener, SpellCheckerSession.SpellCheckerSessionListener {
+
+
+    // keycode declarations
+    private final int KEYPAD_CHANGE_CODE = 1511;
+
+    // making searchnotes global so it retains the search
+    JSONArray searchNotes = new JSONArray();
+
+    InputConnection ic;
 
 
     /**
@@ -200,11 +226,29 @@ public class PCKeyboard extends InputMethodService
     @Override public View onCreateInputView() {
         mInputView = (CustomKeyboard) getLayoutInflater().inflate(
                 R.layout.keyboard, null);
+        resetLabels();
         mInputView.setOnKeyboardActionListener(this);
         mInputView.setPreviewEnabled(false);
         setLatinKeyboard(mStandardKeyboard);
         return mInputView;
     }
+
+
+    void resetLabels(){
+
+        List<Keyboard.Key> keys = mStandardKeyboard.getKeys();
+
+
+        Keyboard.Key key = keys.get(0);
+        key.label = " ";
+        key = keys.get(1);
+        key.label = " ";
+        key = keys.get(2);
+        key.label = " ";
+
+        kv.invalidateAllKeys();
+    }
+
 
     private void setLatinKeyboard(LatinKeyboard nextKeyboard) {
 
@@ -944,6 +988,8 @@ public class PCKeyboard extends InputMethodService
         switch (PreferenceManager.getDefaultSharedPreferences(getBaseContext()).getString("start", "1")) {
             case "1":
                 currentKeyboard = standardKeyboard;
+                setRowNumber(7);
+                currentKeyboard.setRowNumber(getRowNumber());
                 break;
             case "2":
                 currentKeyboard = new LatinKeyboard(this, R.xml.arrow_keys);
@@ -997,6 +1043,36 @@ public class PCKeyboard extends InputMethodService
         /** Here we handle the key events. */
 
         switch (primaryCode) {
+
+
+            // case 1511 intent for changing keyboard
+            case KEYPAD_CHANGE_CODE:
+                InputMethodManager imm = (InputMethodManager)getApplicationContext().getSystemService(INPUT_METHOD_SERVICE);
+                imm.showInputMethodPicker();
+                break;
+
+            case 150:
+                try {
+                    replaceAll(searchNotes.getJSONObject(0).getString(NOTE_BODY));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 151:
+                try {
+                    replaceAll(searchNotes.getJSONObject(1).getString(NOTE_BODY));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case 152:
+                try {
+                    replaceAll(searchNotes.getJSONObject(2).getString(NOTE_BODY));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
             case Keyboard.KEYCODE_DELETE:
                handleBackspace();
                 break;
@@ -1249,6 +1325,25 @@ public class PCKeyboard extends InputMethodService
         }
     }
 
+
+
+    void replaceAll(CharSequence cs){
+        CharSequence currentText = ic.getExtractedText(new ExtractedTextRequest(), 0).text;
+        CharSequence beforCursorText = ic.getTextBeforeCursor(currentText.length(), 0);
+        CharSequence afterCursorText = ic.getTextAfterCursor(currentText.length(), 0);
+        ic.deleteSurroundingText(beforCursorText.length(), afterCursorText.length());
+        String someStr = currentText.toString();
+        try {
+            // a space " " has to be given manually between the joining of words
+            someStr = someStr.substring(0, someStr.lastIndexOf(" ")) +" "+ cs.toString();
+        } catch (Exception e){
+            someStr = cs.toString();
+        }
+        ic.commitText(someStr,0);
+    }
+
+
+
     public short getRowNumber(){
 
         return rowNumber;
@@ -1319,7 +1414,7 @@ public class PCKeyboard extends InputMethodService
                     default:
                         standardKeyboardID = R.xml.qwerty;
                 }
-                setRowNumber(4);
+                setRowNumber(7);
             }
         }
     }
