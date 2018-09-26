@@ -7,7 +7,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.vlath.keyboard"
+        applicationId "in.springpebbles.customclip"
         minSdkVersion 18
         targetSdkVersion 26
         versionCode 112

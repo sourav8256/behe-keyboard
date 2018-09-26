@@ -3,7 +3,7 @@
     android:keyWidth="10%p"
     android:horizontalGap="0px"
     android:verticalGap="0px"
-    android:keyHeight="7%p">
+    android:keyHeight="7.5%p">
 
     <Row>
         <Key android:keyLabel=" "
@@ -62,6 +62,8 @@
     </Row>
     <Row android:rowEdgeFlags="bottom">
         <!--<Key android:codes="-101" android:keyIcon="@drawable/ic_more_horiz" android:keyWidth="10%p"/>-->
+        <!--<Key android:keyIcon="@drawable/keypad" android:keyWidth="10%p" android:keyEdgeFlags="left" android:codes="1511"/>-->
+        <Key android:codes="1511" android:keyIcon="@drawable/ic_more_horiz" android:keyWidth="10%p"/>
         <Key android:codes="-2" android:keyLabel="123" android:keyWidth="10%p"/>
         <Key android:codes="44" android:keyLabel="," />
         <Key android:codes="32"   android:isRepeatable="true" android:keyLabel="SPACE"

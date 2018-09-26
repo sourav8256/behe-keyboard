@@ -5,6 +5,31 @@
     android:verticalGap="0px"
     android:keyHeight="9%p">
 
+
+
+    <Row>
+        <Key android:keyLabel=" "
+            android:keyWidth="100%p"
+            android:keyEdgeFlags="left"
+            android:codes="150"/>
+    </Row>
+
+    <Row>
+        <Key android:keyLabel=" "
+            android:keyWidth="100%p"
+            android:keyEdgeFlags="left"
+            android:codes="151"/>
+    </Row>
+
+    <Row>
+        <Key android:keyLabel=" "
+            android:keyWidth="100%p"
+            android:keyEdgeFlags="left"
+            android:codes="152"/>
+    </Row>
+
+
+
     <Row>
         <Key android:codes="126" android:keyLabel="~" android:keyEdgeFlags="left"/>
         <Key android:codes="177" android:keyLabel="±"/>

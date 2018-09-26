@@ -1,19 +1,19 @@
-[![Travis](https://img.shields.io/travis/VladThodo/behe-keyboard.svg?style=flat-square)]()
-[![Quality Score](https://img.shields.io/scrutinizer/g/VladThodo/behe-keyboard.svg?style=flat-square)]()
-[![license](https://img.shields.io/github/license/VladThodo/behe-keyboard.svg?style=flat-square)]()
-[![GitHub release](https://img.shields.io/github/release/VladThodo/behe-keyboard.svg?style=flat-square)]()
-[![GitHub issues](https://img.shields.io/github/issues/VladThodo/behe-keyboard.svg?style=flat-square)]()
+[![Travis](https://img.shields.io/travis/VladThodo/App-keyboard.svg?style=flat-square)]()
+[![Quality Score](https://img.shields.io/scrutinizer/g/VladThodo/App-keyboard.svg?style=flat-square)]()
+[![license](https://img.shields.io/github/license/VladThodo/App-keyboard.svg?style=flat-square)]()
+[![GitHub release](https://img.shields.io/github/release/VladThodo/App-keyboard.svg?style=flat-square)]()
+[![GitHub issues](https://img.shields.io/github/issues/VladThodo/App-keyboard.svg?style=flat-square)]()
 
 <hr>
 
 
-# BeHe Keyboard
+# App Keyboard
 
 A lightweight hacking &amp; programming keyboard with material design.
 
-BeHe Keyboard aims to provide a smooth and simple keyboard experience, while also providing special keys and interfaces, all with material design.
+App Keyboard aims to provide a smooth and simple keyboard experience, while also providing special keys and interfaces, all with material design.
 
-Also, BeHe Keyboard does not spy on you and is easy to use. Check it out!
+Also, App Keyboard does not spy on you and is easy to use. Check it out!
 
 
 <a href="https://f-droid.org/packages/com.vlath.keyboard/" target="_blank">

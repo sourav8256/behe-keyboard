@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Teclado BeHe</string>
+    <string name="app_name">Teclado App</string>
     <string name="subtype_generic">%s</string>
-    <string name="welcome">Bem-vindo ao Teclado BeHe!</string>
-    <string name="activate">Por favor, clique no botão \"Ativar\" abaixo para navegar até as configurações do teclado. Encontre o teclado BeHe na lista e habilite-o. Uma aviso aparecerá, clique em OK. O Teclado BeHe NÃO coleta nenhum dado. Em seguida, navegue de volta,  clique no botão \"Selecionar\" abaixo e escolha o Teclado BeHe na lista. Depois disso, você pode testar o teclado usando o campo de texto abaixo. Para abrir as configurações, toque no botão abaixo e clique em Teclado BeHe.</string>
+    <string name="welcome">Bem-vindo ao Teclado App!</string>
+    <string name="activate">Por favor, clique no botão \"Ativar\" abaixo para navegar até as configurações do teclado. Encontre o teclado App na lista e habilite-o. Uma aviso aparecerá, clique em OK. O Teclado App NÃO coleta nenhum dado. Em seguida, navegue de volta,  clique no botão \"Selecionar\" abaixo e escolha o Teclado App na lista. Depois disso, você pode testar o teclado usando o campo de texto abaixo. Para abrir as configurações, toque no botão abaixo e clique em Teclado App.</string>
     <string name="donate">Se você gosta do aplicativo, considere me apoiar. Obrigado!</string>
     <string name="up">Mantenha-se atualizado</string>
     <string name="follow">Siga-me no Twitter para encontrar novidade sobre meus aplicativos. @VlathXDA</string>

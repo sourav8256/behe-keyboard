@@ -57,7 +57,7 @@
         android:key="nbr_qrt"
         android:defaultValue="false" />
 
-    <com.vlath.keyboard.SeekPreference
+    <in.springpebbles.customclip.SeekPreference
         android:defaultValue="50"
         android:key="height"
         android:title="Key Height" />
